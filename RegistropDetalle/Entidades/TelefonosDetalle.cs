@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RegistropDetalle.Entidades
 {
-    class TelefonosDetalle
+     public class TelefonosDetalle
     {
         [Key]
 

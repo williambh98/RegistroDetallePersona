@@ -56,7 +56,7 @@
             // registrosToolStripMenuItem1
             // 
             this.registrosToolStripMenuItem1.Name = "registrosToolStripMenuItem1";
-            this.registrosToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+            this.registrosToolStripMenuItem1.Size = new System.Drawing.Size(145, 26);
             this.registrosToolStripMenuItem1.Text = "Registros";
             this.registrosToolStripMenuItem1.Click += new System.EventHandler(this.registrosToolStripMenuItem1_Click);
             // 

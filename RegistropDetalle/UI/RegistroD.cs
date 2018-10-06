@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RegistropDetalle.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,29 +13,17 @@ namespace RegistropDetalle.UI
 {
     public partial class RegistroD : Form
     {
+            public List<TelefonosDetalle> Detalle { get; set; }
         public RegistroD()
         {
             InitializeComponent();
+            this.Detalle = new List<TelefonosDetalle>();
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void Limpiar()
         {
 
         }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
