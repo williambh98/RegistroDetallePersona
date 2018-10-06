@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.IDnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,22 +38,24 @@
             this.FechadateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.Buscar = new System.Windows.Forms.Button();
             this.NombretextBox = new System.Windows.Forms.TextBox();
             this.DirecciontextBox = new System.Windows.Forms.TextBox();
-            this.Nuevo = new System.Windows.Forms.Button();
-            this.Guardar = new System.Windows.Forms.Button();
-            this.Eliminar = new System.Windows.Forms.Button();
             this.CedulamaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.TelefonomaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.TipocomboBox = new System.Windows.Forms.ComboBox();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Filabutton = new System.Windows.Forms.Button();
+            this.DetalledataGridView = new System.Windows.Forms.DataGridView();
+            this.TipocomboBox = new System.Windows.Forms.ComboBox();
+            this.Agregar = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Eliminar = new System.Windows.Forms.Button();
+            this.Guardar = new System.Windows.Forms.Button();
+            this.Nuevo = new System.Windows.Forms.Button();
+            this.Buscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetalledataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -114,7 +117,6 @@
             this.FechadateTimePicker.Name = "FechadateTimePicker";
             this.FechadateTimePicker.Size = new System.Drawing.Size(174, 22);
             this.FechadateTimePicker.TabIndex = 6;
-           
             // 
             // label7
             // 
@@ -124,7 +126,6 @@
             this.label7.Size = new System.Drawing.Size(68, 17);
             this.label7.TabIndex = 8;
             this.label7.Text = "Telefono:";
-           
             // 
             // label8
             // 
@@ -134,15 +135,6 @@
             this.label8.Size = new System.Drawing.Size(40, 17);
             this.label8.TabIndex = 9;
             this.label8.Text = "Tipo:";
-            // 
-            // Buscar
-            // 
-            this.Buscar.Location = new System.Drawing.Point(258, 34);
-            this.Buscar.Name = "Buscar";
-            this.Buscar.Size = new System.Drawing.Size(109, 35);
-            this.Buscar.TabIndex = 10;
-            this.Buscar.Text = "Buscar";
-            this.Buscar.UseVisualStyleBackColor = true;
             // 
             // NombretextBox
             // 
@@ -157,34 +149,6 @@
             this.DirecciontextBox.Name = "DirecciontextBox";
             this.DirecciontextBox.Size = new System.Drawing.Size(441, 22);
             this.DirecciontextBox.TabIndex = 12;
-       
-            // 
-            // Nuevo
-            // 
-            this.Nuevo.Location = new System.Drawing.Point(65, 449);
-            this.Nuevo.Name = "Nuevo";
-            this.Nuevo.Size = new System.Drawing.Size(128, 42);
-            this.Nuevo.TabIndex = 15;
-            this.Nuevo.Text = "Nuevo";
-            this.Nuevo.UseVisualStyleBackColor = true;
-            // 
-            // Guardar
-            // 
-            this.Guardar.Location = new System.Drawing.Point(231, 450);
-            this.Guardar.Name = "Guardar";
-            this.Guardar.Size = new System.Drawing.Size(123, 41);
-            this.Guardar.TabIndex = 16;
-            this.Guardar.Text = "Guardar";
-            this.Guardar.UseVisualStyleBackColor = true;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.Location = new System.Drawing.Point(393, 450);
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Size = new System.Drawing.Size(117, 42);
-            this.Eliminar.TabIndex = 17;
-            this.Eliminar.Text = "Eliminar";
-            this.Eliminar.UseVisualStyleBackColor = true;
             // 
             // CedulamaskedTextBox
             // 
@@ -201,59 +165,114 @@
             this.TelefonomaskedTextBox.Name = "TelefonomaskedTextBox";
             this.TelefonomaskedTextBox.Size = new System.Drawing.Size(138, 22);
             this.TelefonomaskedTextBox.TabIndex = 19;
-          
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.Filabutton);
-            this.groupBox1.Controls.Add(this.dataGridView);
+            this.groupBox1.Controls.Add(this.DetalledataGridView);
             this.groupBox1.Controls.Add(this.TipocomboBox);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.Agregar);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.TelefonomaskedTextBox);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Location = new System.Drawing.Point(12, 184);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(558, 245);
+            this.groupBox1.Size = new System.Drawing.Size(558, 260);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar Telefonos";
-        
             // 
-            // button1
+            // Filabutton
             // 
-            this.button1.Location = new System.Drawing.Point(460, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 27);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Filabutton.Image = global::RegistropDetalle.Properties.Resources.Eliminar;
+            this.Filabutton.Location = new System.Drawing.Point(198, 209);
+            this.Filabutton.Name = "Filabutton";
+            this.Filabutton.Size = new System.Drawing.Size(163, 45);
+            this.Filabutton.TabIndex = 23;
+            this.Filabutton.Text = "Remove Fila";
+            this.Filabutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Filabutton.UseVisualStyleBackColor = true;
+            this.Filabutton.Click += new System.EventHandler(this.Filabutton_Click);
+            // 
+            // DetalledataGridView
+            // 
+            this.DetalledataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DetalledataGridView.Location = new System.Drawing.Point(18, 58);
+            this.DetalledataGridView.Name = "DetalledataGridView";
+            this.DetalledataGridView.RowTemplate.Height = 24;
+            this.DetalledataGridView.Size = new System.Drawing.Size(516, 150);
+            this.DetalledataGridView.TabIndex = 22;
             // 
             // TipocomboBox
             // 
+            this.TipocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TipocomboBox.FormattingEnabled = true;
             this.TipocomboBox.Location = new System.Drawing.Point(298, 28);
             this.TipocomboBox.Name = "TipocomboBox";
             this.TipocomboBox.Size = new System.Drawing.Size(145, 24);
             this.TipocomboBox.TabIndex = 21;
             // 
-            // dataGridView
+            // Agregar
             // 
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(18, 58);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(516, 150);
-            this.dataGridView.TabIndex = 22;
+            this.Agregar.Location = new System.Drawing.Point(460, 25);
+            this.Agregar.Name = "Agregar";
+            this.Agregar.Size = new System.Drawing.Size(75, 27);
+            this.Agregar.TabIndex = 20;
+            this.Agregar.Text = "Agregar";
+            this.Agregar.UseVisualStyleBackColor = true;
+            this.Agregar.Click += new System.EventHandler(this.Agregar_Click);
             // 
-            // Filabutton
+            // errorProvider
             // 
-            this.Filabutton.Location = new System.Drawing.Point(18, 214);
-            this.Filabutton.Name = "Filabutton";
-            this.Filabutton.Size = new System.Drawing.Size(163, 23);
-            this.Filabutton.TabIndex = 23;
-            this.Filabutton.Text = "Remove Fila";
-            this.Filabutton.UseVisualStyleBackColor = true;
+            this.errorProvider.ContainerControl = this;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.Image = global::RegistropDetalle.Properties.Resources.Eliminar1;
+            this.Eliminar.Location = new System.Drawing.Point(393, 450);
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Size = new System.Drawing.Size(117, 42);
+            this.Eliminar.TabIndex = 17;
+            this.Eliminar.Text = "Eliminar";
+            this.Eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Eliminar.UseVisualStyleBackColor = true;
+            this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
+            // 
+            // Guardar
+            // 
+            this.Guardar.Image = global::RegistropDetalle.Properties.Resources.icons8_guardar_48;
+            this.Guardar.Location = new System.Drawing.Point(231, 446);
+            this.Guardar.Name = "Guardar";
+            this.Guardar.Size = new System.Drawing.Size(123, 51);
+            this.Guardar.TabIndex = 16;
+            this.Guardar.Text = "Guardar";
+            this.Guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Guardar.UseVisualStyleBackColor = true;
+            this.Guardar.Click += new System.EventHandler(this.Guardar_Click);
+            // 
+            // Nuevo
+            // 
+            this.Nuevo.Image = global::RegistropDetalle.Properties.Resources.icons8_nuevo_48;
+            this.Nuevo.Location = new System.Drawing.Point(64, 446);
+            this.Nuevo.Name = "Nuevo";
+            this.Nuevo.Size = new System.Drawing.Size(128, 51);
+            this.Nuevo.TabIndex = 15;
+            this.Nuevo.Text = "Nuevo";
+            this.Nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Nuevo.UseVisualStyleBackColor = true;
+            this.Nuevo.Click += new System.EventHandler(this.Nuevo_Click);
+            // 
+            // Buscar
+            // 
+            this.Buscar.Image = global::RegistropDetalle.Properties.Resources.Buscar;
+            this.Buscar.Location = new System.Drawing.Point(245, 37);
+            this.Buscar.Name = "Buscar";
+            this.Buscar.Size = new System.Drawing.Size(109, 45);
+            this.Buscar.TabIndex = 10;
+            this.Buscar.Text = "Buscar";
+            this.Buscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Buscar.UseVisualStyleBackColor = true;
+            this.Buscar.Click += new System.EventHandler(this.Buscar_Click);
             // 
             // RegistroD
             // 
@@ -280,7 +299,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetalledataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,9 +326,10 @@
         private System.Windows.Forms.MaskedTextBox CedulamaskedTextBox;
         private System.Windows.Forms.MaskedTextBox TelefonomaskedTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.DataGridView DetalledataGridView;
         private System.Windows.Forms.ComboBox TipocomboBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Agregar;
         private System.Windows.Forms.Button Filabutton;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

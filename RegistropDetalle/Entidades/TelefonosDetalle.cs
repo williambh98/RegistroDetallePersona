@@ -22,6 +22,15 @@ namespace RegistropDetalle.Entidades
             PersonaId = 0;
             TipoTelefono = string.Empty;
             Telefono = string.Empty;
+
         }
+        public TelefonosDetalle(int Id, int PersonaId, string TipoTelefono, string Telefono)
+        {
+            Id = 0;
+            PersonaId = 0;
+            TipoTelefono = string.Empty;
+            Telefono = string.Empty;
+        }
+      
     }
 }
