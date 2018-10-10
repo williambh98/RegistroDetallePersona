@@ -19,12 +19,20 @@ namespace RegistropDetalle.UI
         {
             InitializeComponent();
             this.Detalle = new List<TelefonosDetalle>();
+            LlenarCombox();
+
         }
 
         private void CargarGrid()
         {
             DetalledataGridView.DataSource = null;
             DetalledataGridView.DataSource = this.Detalle;
+        }
+
+        private void LlenarCombox()
+        {
+            TipocomboBox.DataSource = TipoTPBLL.GetList(x => true);
+            TipocomboBox.ValueMember = "T";
         }
         private void Limpiar()
         {
@@ -55,7 +63,6 @@ namespace RegistropDetalle.UI
             persona.FechaNacimiento = FechadateTimePicker.Value;
 
             persona.Telefonos = this.Detalle;
-
             return persona;
         }
 
@@ -107,6 +114,7 @@ namespace RegistropDetalle.UI
 
         private void Agregar_Click(object sender, EventArgs e)
         {
+            RegistroD rd = new RegistroD();
             if (DetalledataGridView.DataSource != null)
                 this.Detalle = (List<TelefonosDetalle>)DetalledataGridView.DataSource;
             //Todo: Validar Campos del detalle
@@ -206,6 +214,18 @@ namespace RegistropDetalle.UI
                 MessageBox.Show("Se elimino exitosamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Limpiar();
             }
+        }
+
+        private void TipocomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NTipobutton_Click(object sender, EventArgs e)
+        {
+            TipoDeTelefonoN t = new TipoDeTelefonoN();
+            t.ShowDialog();
+            t.Close();
         }
     }
 }

@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace RegistropDetalle.DAL
 {
-   public class Contexto : DbContext
+      class Contexto : DbContext
     {
         public  DbSet<PersonaDetalle> PersonaD { get; set; }
+        public  DbSet<TipoDeTelefono> Tipo { get; set; }
 
         public Contexto() : base("ConStr")
         {

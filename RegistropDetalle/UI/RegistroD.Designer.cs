@@ -52,6 +52,7 @@
             this.Guardar = new System.Windows.Forms.Button();
             this.Nuevo = new System.Windows.Forms.Button();
             this.Buscar = new System.Windows.Forms.Button();
+            this.NTipobutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DetalledataGridView)).BeginInit();
@@ -168,6 +169,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.NTipobutton);
             this.groupBox1.Controls.Add(this.Filabutton);
             this.groupBox1.Controls.Add(this.DetalledataGridView);
             this.groupBox1.Controls.Add(this.TipocomboBox);
@@ -185,7 +187,7 @@
             // Filabutton
             // 
             this.Filabutton.Image = global::RegistropDetalle.Properties.Resources.Eliminar;
-            this.Filabutton.Location = new System.Drawing.Point(198, 209);
+            this.Filabutton.Location = new System.Drawing.Point(18, 209);
             this.Filabutton.Name = "Filabutton";
             this.Filabutton.Size = new System.Drawing.Size(163, 45);
             this.Filabutton.TabIndex = 23;
@@ -211,6 +213,7 @@
             this.TipocomboBox.Name = "TipocomboBox";
             this.TipocomboBox.Size = new System.Drawing.Size(145, 24);
             this.TipocomboBox.TabIndex = 21;
+            this.TipocomboBox.SelectedIndexChanged += new System.EventHandler(this.TipocomboBox_SelectedIndexChanged);
             // 
             // Agregar
             // 
@@ -274,6 +277,16 @@
             this.Buscar.UseVisualStyleBackColor = true;
             this.Buscar.Click += new System.EventHandler(this.Buscar_Click);
             // 
+            // NTipobutton
+            // 
+            this.NTipobutton.Location = new System.Drawing.Point(391, 209);
+            this.NTipobutton.Name = "NTipobutton";
+            this.NTipobutton.Size = new System.Drawing.Size(143, 45);
+            this.NTipobutton.TabIndex = 24;
+            this.NTipobutton.Text = "Tipo nuevo";
+            this.NTipobutton.UseVisualStyleBackColor = true;
+            this.NTipobutton.Click += new System.EventHandler(this.NTipobutton_Click);
+            // 
             // RegistroD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -331,5 +344,6 @@
         private System.Windows.Forms.Button Agregar;
         private System.Windows.Forms.Button Filabutton;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button NTipobutton;
     }
 }
