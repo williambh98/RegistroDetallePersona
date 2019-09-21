@@ -24,13 +24,13 @@ namespace RegistropDetalle.Entidades
             Telefono = string.Empty;
 
         }
-        public TelefonosDetalle(int Id, int PersonaId, string TipoTelefono, string Telefono)
+
+        public TelefonosDetalle(int id, int personaId, string tipoTelefono, string telefono)
         {
-            Id = 0;
-            PersonaId = 0;
-            TipoTelefono = string.Empty;
-            Telefono = string.Empty;
+            Id = id;
+            PersonaId = personaId;
+            TipoTelefono = tipoTelefono;
+            Telefono = telefono;
         }
-      
     }
 }

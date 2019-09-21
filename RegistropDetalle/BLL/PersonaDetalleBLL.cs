@@ -37,14 +37,21 @@ namespace RegistropDetalle.BLL
         {
             bool paso = false;
             Contexto contexto = new Contexto();
-
             try
             {
-                var Anterior = contexto.PersonaD.Find(persona.PersonaId);
-                foreach (var item in Anterior.Telefonos)
+                //var Anterior = contexto.PersonaD.Find(persona.PersonaId);
+                var Anterior = Buscar(persona.PersonaId);
+                foreach (var item in Anterior.Telefonos.ToList())
                 {
                     if (!persona.Telefonos.Exists(d => d.Id == item.Id))
                         contexto.Entry(item).State = EntityState.Deleted;
+                }
+                foreach(var item in persona.Telefonos)
+                {
+                    if(item.Id==0)
+                        contexto.Entry(item).State = EntityState.Added;
+                    else
+                        contexto.Entry(item).State = EntityState.Modified;
                 }
                 contexto.Entry(persona).State = EntityState.Modified;
                 paso = (contexto.SaveChanges() > 0);
@@ -54,9 +61,7 @@ namespace RegistropDetalle.BLL
                 throw;
             }
             finally
-            {
-                contexto.Dispose();
-            }
+            {contexto.Dispose(); }
             return paso;
         }
 
@@ -89,8 +94,8 @@ namespace RegistropDetalle.BLL
             try
             {
                 persona = contexto.PersonaD.Find(id);
-                //El Count() es para hacer al lazyloadig cargar los detalles 
-                persona.Telefonos.Count();
+                if(persona!=null)
+                    persona.Telefonos.Count();
             }catch(Exception)
             {
                 throw;

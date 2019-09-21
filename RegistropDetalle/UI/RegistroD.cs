@@ -32,7 +32,7 @@ namespace RegistropDetalle.UI
         private void LlenarCombox()
         {
             TipocomboBox.DataSource = TipoTPBLL.GetList(x => true);
-            TipocomboBox.ValueMember = "T";
+            // TipocomboBox.ValueMember = "T";
         }
         private void Limpiar()
         {
@@ -48,11 +48,9 @@ namespace RegistropDetalle.UI
             CargarGrid();
         }
         private void Nuevo_Click(object sender, EventArgs e)
-           {
-              Limpiar();
-           }
-
-
+        {
+            Limpiar();
+        }
         private PersonaDetalle LlenarClase()
         {
             PersonaDetalle persona = new PersonaDetalle();
@@ -65,7 +63,6 @@ namespace RegistropDetalle.UI
             persona.Telefonos = this.Detalle;
             return persona;
         }
-
         private void LlenarCampos(PersonaDetalle persona)
         {
             IDnumericUpDown.Value = persona.PersonaId;
@@ -77,7 +74,6 @@ namespace RegistropDetalle.UI
             this.Detalle = persona.Telefonos;
             CargarGrid();
         }
-
         private bool Validar()
         {
             bool paso = true;
@@ -95,14 +91,14 @@ namespace RegistropDetalle.UI
                 paso = false;
             }
 
-            if(string.IsNullOrWhiteSpace(CedulamaskedTextBox.Text))
+            if (string.IsNullOrWhiteSpace(CedulamaskedTextBox.Text))
             {
                 errorProvider.SetError(CedulamaskedTextBox, "Llenar campo");
                 paso = false;
             }
             if (string.IsNullOrWhiteSpace(CedulamaskedTextBox.Text.Replace("_", ""))) { }
 
-            if(this.Detalle.Count == 0)
+            if (this.Detalle.Count == 0)
             {
                 errorProvider.SetError(DetalledataGridView, " Debe agregar algun telefono");
                 TelefonomaskedTextBox.Focus();
@@ -120,19 +116,18 @@ namespace RegistropDetalle.UI
             //Todo: Validar Campos del detalle
             //Agregar un nuevo detalle con los datosintroducidos
 
-            this.Detalle.Add(
-                new TelefonosDetalle(
-                  Id:  0,
-                  PersonaId: (int)IDnumericUpDown.Value,
-                  Telefono: TelefonomaskedTextBox.Text,
-                  TipoTelefono: TipocomboBox.Text
+            this.Detalle.Add(new TelefonosDetalle(
+                  id: 0,
+                  personaId: (int)IDnumericUpDown.Value,
+                  telefono: TelefonomaskedTextBox.Text,
+                  tipoTelefono: TipocomboBox.Text
 
                     )
                     );
             CargarGrid();
             TelefonomaskedTextBox.Focus();
             TelefonomaskedTextBox.Clear();
-      
+
         }
 
         private void Filabutton_Click(object sender, EventArgs e)
@@ -140,16 +135,16 @@ namespace RegistropDetalle.UI
             if (DetalledataGridView.Rows.Count > 0 && DetalledataGridView.CurrentRow != null)
             {
                 Detalle.RemoveAt(DetalledataGridView.CurrentRow.Index);
-               CargarGrid();
+                CargarGrid();
             }
         }
 
-       private bool ExisteEnLaBaseDeDatos()
+        private bool ExisteEnLaBaseDeDatos()
         {
             PersonaDetalle persona = PersonaDetalleBLL.Buscar((int)IDnumericUpDown.Value);
             return (persona != null);
         }
-    
+
         private void Buscar_Click(object sender, EventArgs e)
         {
             errorProvider.Clear();
@@ -160,7 +155,7 @@ namespace RegistropDetalle.UI
 
             if (personas != null)
             {
-                MessageBox.Show("Encontrado");
+                //MessageBox.Show("Encontrado");
                 LlenarCampos(personas);
             }
             else
@@ -209,7 +204,7 @@ namespace RegistropDetalle.UI
                 MessageBox.Show("No se Encuentra en la base de datos");
                 return;
             }
-            if(PersonaDetalleBLL.Eliminar(id))
+            if (PersonaDetalleBLL.Eliminar(id))
             {
                 MessageBox.Show("Se elimino exitosamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Limpiar();
